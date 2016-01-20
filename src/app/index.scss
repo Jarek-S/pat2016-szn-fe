@@ -61,6 +61,13 @@ main {
     background-repeat: no-repeat;
   }
 
+  > .mdl-card__title.about {
+    height: 350px;
+    background: url('../assets/images/Jarek.JPG') center / cover;
+    background-size: 200px;
+    background-repeat: no-repeat;
+  }
+
   > .mdl-card__title > .mdl-card__title-text {
     color: #000;
   }

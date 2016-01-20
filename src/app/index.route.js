@@ -20,7 +20,9 @@
       })
       .state('home.about', {
         url: 'about',
-        template: 'tu coś o mnie'
+        templateUrl: 'app/about/about.html',
+        controller: 'AboutController',
+        controllerAs: 'aboutMe'
       });
 
     $urlRouterProvider.otherwise('/');
