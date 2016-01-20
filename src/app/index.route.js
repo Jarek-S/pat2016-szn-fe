@@ -14,17 +14,13 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('users', {
-        url: '/users',
-        templateUrl: 'app/users/users.html',
-        controller: 'UsersController',
-        controllerAs: 'users'
+      .state('home.users', {
+        url: 'users',
+        template: 'tu lista użytkowników'
       })
-      .state('about', {
-        url: '/about',
-        templateUrl: 'app/about/about.html',
-        controller: 'AboutController',
-        controllerAs: 'main'
+      .state('home.about', {
+        url: 'about',
+        template: 'tu coś o mnie'
       });
 
     $urlRouterProvider.otherwise('/');

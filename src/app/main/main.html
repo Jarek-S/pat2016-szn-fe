@@ -8,12 +8,12 @@
     <span class="mdl-layout-title">Gulp Angular</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" ui-sref="home">Welcome</a>
-      <a class="mdl-navigation__link" ui-sref="users">Users</a>
-      <a class="mdl-navigation__link" ui-sref="about">About</a>
+      <a class="mdl-navigation__link" ui-sref=".users">Users</a>
+      <a class="mdl-navigation__link" ui-sref=".about">About</a>
     </nav>
   </div>
 
-  <main class="mdl-layout__content">
+  <main class="mdl-layout__content" ui-view>
     <div class="page-content">
       <div class="acme-card-wide mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title">
