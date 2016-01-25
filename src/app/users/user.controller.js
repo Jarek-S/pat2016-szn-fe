@@ -5,14 +5,15 @@
 	.controller('UserController', UserController);
 
 	/** ngInject */
-	function UserController($log, $http, $parentScope) {
+	function UserController($log, $http, $stateParams) {
 		var vm = this;
 		vm.gitUser = [];
-		var login = $parentScope.login;		
+		var login = $stateParams.login;		
 		var gitUserApi = 'https://api.github.com/users/' + login;
 		GetUser();
 
 		function GetUser() {
+			$log.info(login);
 			$http.get(gitUserApi)
 		.then(function(response) {
 			vm.gitUser = response.data;

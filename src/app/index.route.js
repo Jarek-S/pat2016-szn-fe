@@ -16,21 +16,22 @@
     })
     .state('home.users', {
       url: 'users',     
-         templateUrl: 'app/users/users.html',
-        controller: 'UsersController',
-        controllerAs: 'users'
-       })
+      templateUrl: 'app/users/users.html',
+      controller: 'UsersController',
+      controllerAs: 'users'
+    })
     .state('home.users.user', {
-        templateUrl: 'app/users/user.html',
-        controller: function($scope) {
+      url: '/user/{login}',
+      templateUrl: 'app/users/user.html',
+        /*controller: function($scope) {
           $scope.testUser = {
             'login': 'defunkt',
             'avatar_url':'https://avatars.githubusercontent.com/u/2?v=3'
           };
-        }
-       // controller: 'UserController',
-        //controllerAs: 'user'
-        })
+        }*/
+        controller: 'UserController',
+        controllerAs: 'user'
+      })
     .state('home.about', {
       url: 'about',
       templateUrl: 'app/about/about.html',
