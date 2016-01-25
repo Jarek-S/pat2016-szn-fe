@@ -1,12 +1,12 @@
 <div class="page-content">
-  <div ui-view="user"></div>
+  <div ui-view>Test</div>
   <div class="mdl-row">
     <div class="mdl-card__title">
       <h3 class="mdl-card__title-text">Git users list</h3>
     </div>
     <div class="mdl-card__supporting-text">
       Input start position <input type="text" ng-model="offset">
-      <button ng-click="home.users.reload">Send</button><div>Tu {{offset}}</div>
+      <button ui-click="users.GetUsers({{offset}})">Send</button><div>Tu {{offset}}</div>
     </div>
   </div>
   <div class="mdl-grid">  
@@ -19,7 +19,8 @@
           <img ng-src={{userCard.avatar_url}} alt="user's avatar">
         </div>
         <div class="mdl-card__actions mdl-card--border">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ui-sref="{{userCard.login}}">Details</a>
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" 
+          ui-sref=".user">Details</a>
         </div>
       </div>
     </div>

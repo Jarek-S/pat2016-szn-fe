@@ -14,7 +14,8 @@
 
 		function GetUsers(offset) {
 			if(offset!==0) {
-			gitApi += '?since=' + (offset - 1);			 
+			gitApi += '?since=' + (offset - 1);
+			$log.info('button clicked');			 
 		}
 			$http.get(gitApi)
 		.then(function(response) {

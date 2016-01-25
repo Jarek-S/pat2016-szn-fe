@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-    .module('pat2016SznFe')
-    .config(routerConfig);
+  .module('pat2016SznFe')
+  .config(routerConfig);
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
@@ -15,29 +15,28 @@
       controllerAs: 'main'
     })
     .state('home.users', {
-      url: 'users',
-        //templateUrl: 'app/users/users.html',
-        //controller: 'UsersController',
-        //controllerAs: 'users',
-        views: {
-          '': {
-            templateUrl: 'app/users/users.html',
-            controller: 'UsersController',
-            controllerAs: 'users'
-          },
-          'user': {
-            templateUrl: 'app/users/user.html',
-            controller: 'UserController',
-            controllerAs: 'user'
-          }
+      url: 'users',     
+         templateUrl: 'app/users/users.html',
+        controller: 'UsersController',
+        controllerAs: 'users'
+       })
+    .state('home.users.user', {
+        templateUrl: 'app/users/user.html',
+        controller: function($scope) {
+          $scope.testUser = {
+            'login': 'defunkt',
+            'avatar_url':'https://avatars.githubusercontent.com/u/2?v=3'
+          };
         }
-      })
-      .state('home.about', {
-        url: 'about',
-        templateUrl: 'app/about/about.html',
-        controller: 'AboutController',
-        controllerAs: 'aboutMe'
-      });
+       // controller: 'UserController',
+        //controllerAs: 'user'
+        })
+    .state('home.about', {
+      url: 'about',
+      templateUrl: 'app/about/about.html',
+      controller: 'AboutController',
+      controllerAs: 'aboutMe'
+    });
 
     $urlRouterProvider.otherwise('/');
   }
