@@ -15,23 +15,18 @@
       controllerAs: 'main'
     })
     .state('home.users', {
-      url: 'users',     
+      url: 'users?{offset}',      
       templateUrl: 'app/users/users.html',
       controller: 'UsersController',
       controllerAs: 'users'
+      /*resolve: {myOffset: 'offset'}*/
     })
     .state('home.users.user', {
       url: '/user/{login}',
       templateUrl: 'app/users/user.html',
-        /*controller: function($scope) {
-          $scope.testUser = {
-            'login': 'defunkt',
-            'avatar_url':'https://avatars.githubusercontent.com/u/2?v=3'
-          };
-        }*/
-        controller: 'UserController',
-        controllerAs: 'user'
-      })
+      controller: 'UserController',
+      controllerAs: 'user'
+    })
     .state('home.about', {
       url: 'about',
       templateUrl: 'app/about/about.html',

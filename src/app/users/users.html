@@ -5,8 +5,9 @@
       <h3 class="mdl-card__title-text">Git users list</h3>
     </div>
     <div class="mdl-card__supporting-text">
-      Input start position <input type="text" ng-model="offset">
-      <button ui-click="users.GetUsers({offset})">Send</button>
+      Enter start position <input type="number" min="1" value="1" placeholder="1" maxlength="10" size="11" ng-model="offset" >
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" 
+      ui-sref="^.users({offset: offset})">Send</a>
     </div>
   </div>
   <div class="mdl-grid">
@@ -20,6 +21,6 @@
           ui-sref=".user({login: userCard.login})">Details</a>
         </div>
       </div>
-    </div>
+    </div>   
   </div>
 </div>

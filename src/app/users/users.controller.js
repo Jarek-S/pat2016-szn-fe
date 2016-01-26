@@ -5,28 +5,27 @@
 	.controller('UsersController', UsersController);
 
 	/** ngInject */
-	function UsersController($log, $http) {
+	function UsersController($log, $http, $stateParams) {
 		var vm = this;
 		vm.gitUsers = [];
-		vm.offset = 0;
+		vm.myOffset = $stateParams.offset;
 		var gitApi = 'https://api.github.com/users';
-		GetUsers(vm.offset);
+		GetUsers(vm.myOffset);
 
+		
 		function GetUsers(offset) {
-			if(offset!==0) {
-			gitApi += '?since=' + (offset - 1);
-			$log.info('button clicked');			 
-		}
+			if(offset!==0 && angular.isDefined(offset)) {
+				gitApi += '?since=' + (offset - 1);
+			}
 			$http.get(gitApi)
-		.then(function(response) {
-			vm.gitUsers = response.data;
-			$log.info(vm.gitUsers[2]);
-		})
-		.catch(function(error) {
-			$log.error('XHR error in UsersController function:\n' + angular.toJson(error.data, true));
-		});
+			.then(function(response) {
+				vm.gitUsers = response.data;
+			})
+			.catch(function(error) {
+				$log.error('XHR error in UsersController function:\n' + angular.toJson(error.data, true));
+			});
 		}
-			
+
 		
 
 	}
