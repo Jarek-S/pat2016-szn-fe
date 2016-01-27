@@ -5,23 +5,25 @@
 	.controller('UserController', UserController);
 
 	/** ngInject */
-	function UserController($log, $http, $stateParams) {
+	function UserController($log, $stateParams, gitHubData) {
 		var vm = this;
 		vm.gitUser = [];
 		var login = $stateParams.login;		
 		var gitUserApi = 'https://api.github.com/users/' + login;
-		GetUser();
+		
+		activate(gitUserApi);
 
-		function GetUser() {
-			$log.info(login);
-			$http.get(gitUserApi)
-		.then(function(response) {
-			vm.gitUser = response.data;
-			$log.info(angular.toJson(vm.gitUser.data, 3));
-		})
-		.catch(function(error) {
-			$log.error('XHR error in UserController function:\n' + angular.toJson(error.data, true));
-		});
+		function activate(gitUserApi) {
+			return GetUser(gitUserApi).then(function() {
+				$log.info('Activated User details View');
+			});
 		}
+
+		function GetUser(gitUserApi) {
+			return gitHubData.getGitHubData(gitUserApi).then(function(data) {
+				vm.gitUser = data;
+				return vm.gitUser;
+			});
+		}		
 	}
 })();
